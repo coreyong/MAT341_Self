@@ -1,0 +1,7 @@
+git add <name of file or folder>
+
+git commit -m "comment about file or folder"
+
+git push <pushes to github>
+
+
