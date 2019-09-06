@@ -3,3 +3,7 @@ ls : list files
 cd : change directory
 
 pwd : see tree structure to current working directory
+
+mkdir : create directories 
+
+vi : terminal text editor 

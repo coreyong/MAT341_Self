@@ -1,0 +1,14 @@
+
+i - allows user to edit text
+
+esc - returns to command mode
+
+:# - brings user to a specific line number
+
+:w - saves text
+
+:q - quits text editor
+
+:q! - quits text editor without saving
+
+
