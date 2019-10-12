@@ -1,0 +1,21 @@
+function prob = estimate_Coin_In_Square_Probability(r,N)
+
+N=1e5;
+r=0.1;
+lands = 0;
+x=rand();
+y=rand();
+
+for i=1:N
+    
+    if 0<r<1
+        lands = lands +1;
+    end
+    
+end
+
+prob = lands/N;
+
+disp(prob);
+    
+    
