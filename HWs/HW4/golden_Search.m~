@@ -1,0 +1,53 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% FUNCTION: The algorithm finds the minimum of the given function and
+% returns the number of iterations it takes to 
+%
+% Author: Corey Ong
+%
+% Date: 9/20/19
+%
+% Institution: The College of New Jersey (TCNJ)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+function N = golden_Search(tol)
+
+a=0;                            % start of interval
+b=2;                            % end of interval
+                   
+t=double((sqrt(5)-1)/2);      % golden proportion coefficient, around 0.618
+k=0;                            % number of iterations
+x1=a+(1-t)*(b-a);             % computing x values
+x2=a+t*(b-a);
+f_x1=f(x1);                     % computing values in x points
+f_x2=f(x2);
+
+while ((abs(b-a)>tol))
+    k=k+1;
+    if(f_x1<f_x2)
+        b=x2;
+        x2=x1;
+        x1=a+(1-t)*(b-a);
+        
+        f_x1=f(x1);
+        f_x2=f(x2);
+        
+    else
+        a=x1;
+        x1=x2;
+        x2=a+t*(b-a);
+        
+        f_x1=f(x1);
+        f_x2=f(x2);
+    end
+    
+    k=k+1;
+end
+
+
+disp(k)
+
+
+function val = f(x)
+        val = 0.5 - x*exp(-x^2);

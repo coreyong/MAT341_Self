@@ -1,0 +1,46 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% FUNCTION: Calls golden search and successive parabolic interpolation
+% algorithms and plots the number of iterations vs specific tolerances.
+%
+% Author: Corey Ong
+%
+% Date: 9/29/19
+%
+% Institution: The College of New Jersey (TCNJ)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+function vary_Error_Tolerances_To_Compare()
+
+errTolVec = [1e-1 1e-2 1e-3 1e-4 1e-5 1e-6 1e-7 1e-8 1e-9 1e-10 1e-11 1e-12];
+
+length(errTolVec)
+
+%saves number of iterations for golden search
+for i=1:length(errTolVec)
+    xVec(i) = golden_Search( errTolVec(i) )
+end
+
+%saves number of iterations for successive parabolic interpolation
+for i=1:length(errTolVec)
+    xVec2(i) = successive_Parabolic_Interpolation( errTolVec(i) )
+end
+
+%plots successive parabolic interpolation
+lw = 5;
+ms=2;
+figure(1)=semilogx(errTolVec,xVec2,'b','LineWidth',lw,'MarkerSize',ms); hold on;
+xlabel('tol');
+ylabel('N');
+
+
+%plots golden search
+lw = 5;
+ms = 2;
+figure(2)=loglog(errTolVec,xVec,'r','LineWidth',lw,'MarkerSize',ms); hold on;
+xlabel('tolerance');
+ylabel('N, Iterations');
+
+%creates legend
+legend('Golden Search','Succ. Para. Interp.');
+
